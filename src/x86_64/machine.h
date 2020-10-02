@@ -26,7 +26,11 @@ static inline u16 tagof(void* v) {
 }
 
 #define valueof(__x) (__x)
-#endif /* !BOOT */
+
+typedef struct spinlock {
+    word w;
+} *spinlock;
+#endif
 
 static inline void compiler_barrier(void)
 {
