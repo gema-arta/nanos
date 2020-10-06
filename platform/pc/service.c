@@ -384,12 +384,13 @@ static void __attribute__((noinline)) init_service_new_stack()
 {
     kernel_heaps kh = &heaps;
     heap misc = heap_general(kh);
+    heap locked = heap_locked(kh);
     heap backed = heap_backed(kh);
 
     /* runtime and console init */
     init_debug("in init_service_new_stack");
     init_debug("runtime");    
-    init_runtime(misc);
+    init_runtime(misc, locked);
     init_tuples(allocate_tagged_region(kh, tag_tuple));
     init_symbols(allocate_tagged_region(kh, tag_symbol), misc);
     init_sg(misc);
