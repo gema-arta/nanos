@@ -35,6 +35,7 @@ SRCS-kernel.img= \
 	$(SRCDIR)/runtime/format.c \
 	$(SRCDIR)/runtime/heap/freelist.c \
 	$(SRCDIR)/runtime/heap/id.c \
+	$(SRCDIR)/runtime/heap/locking.c \
 	$(SRCDIR)/runtime/heap/mcache.c \
 	$(SRCDIR)/runtime/heap/objcache.c \
 	$(SRCDIR)/runtime/memops.c \
