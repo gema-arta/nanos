@@ -564,6 +564,9 @@ static void init_kernel_heaps()
 
     heaps.general = allocate_mcache(&bootstrap, heaps.backed, 5, 20, PAGESIZE_2M);
     assert(heaps.general != INVALID_ADDRESS);
+
+    heaps.locked = locking_heap_wrapper(&bootstrap, allocate_mcache(&bootstrap, heaps.backed, 5, 20, PAGESIZE_2M), 1);
+    assert(heaps.general != INVALID_ADDRESS);
 }
 
 static void jump_to_virtual(u64 kernel_size, u64 *pdpt, u64 *pdt) {
